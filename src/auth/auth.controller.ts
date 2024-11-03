@@ -58,7 +58,7 @@ export class AuthController {
     );
   }
 
-  @Post('logout')
+  @Get('logout')
   logout(@Res({ passthrough: true }) response: Response) {
     response.cookie('jwt', '', {
       httpOnly: true,
