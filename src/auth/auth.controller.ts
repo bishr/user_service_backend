@@ -51,11 +51,9 @@ export class AuthController {
   }
 
   @Post('reset-password')
-  async resetPassword(@Body() resetPassword: ResetpasswordDto): Promise<void> {
-    return this.authService.resetPassword(
-      resetPassword.token,
-      resetPassword.password,
-    );
+  async resetPassword(@Body() resetPassword: ResetpasswordDto) {
+    this.authService.resetPassword(resetPassword.token, resetPassword.password);
+    return { message: 'password reset successfully' };
   }
 
   @Get('logout')
